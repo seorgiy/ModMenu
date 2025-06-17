@@ -1,0 +1,14 @@
+{
+  "cSpell.customDictionaries": {
+    "custom-dictionary-workspace": {
+      "name": "custom-dictionary-workspace",
+      "path": "${workspaceFolder:perksReworkedDEV}/.cspell/custom-dictionary-workspace.txt",
+      "addWords": true,
+      "scope": "workspace"
+    }
+  },
+  "files.exclude": {
+    "**/release": true
+  },
+  "C_Cpp.errorSquiggles": "disabled"
+}

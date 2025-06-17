@@ -1,0 +1,2 @@
+This file is needed simply to display the mod version at the stage of building the game files.
+Этот файл нужен просто чтобы вывести версию мода на стадии подгрузки файлов в игру.
