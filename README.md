@@ -1,4 +1,4 @@
-[English](https://github.com/seorgiy/ModMenu/edit/main/README-en.md)) :point_left:
+[English](https://github.com/seorgiy/ModMenu/edit/main/README-en.md) :point_left:
 
 Это репозиторий дев-мода для Карибской Легенды.<br>
 [В мастерской](https://steamcommunity.com/sharedfiles/filedetails/?id=3501393265)
