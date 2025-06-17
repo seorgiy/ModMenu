@@ -8,7 +8,7 @@ Allows you to add settings for your mod to the game menu.
 ### How to use
 1. Subscribe to the mod in the workshop.
 2. Add it to the list of required products for the mod where you want to use it, so that players also subscribe to it.
-3. In the folder of your mod, create the folder Program/mod_menu/YOUR_MOD, copy two files from the [sample folder] there (https://github.com/seorgiy/ModMenu/tree/main/example_menu ), this is the menu template.
+3. In the folder of your mod, create the folder Program/mod_menu/YOUR_MOD, copy two files from the [sample folder](https://github.com/seorgiy/ModMenu/tree/main/example_menu), this is the menu template.
 
 Now you can edit these two files for your mod by adding any buttons, checkboxes and everything else that the interface of the mod can offer you. See how other game menus are made and do the same.
 
