@@ -20,6 +20,7 @@ void ModMenu_InjectModMenuDelayed()
   SetEventHandler("ModMenu_ShowModList", "ModMenu_ShowModList", 1);
   SetEventHandler("OnTableClick","ModMenu_ClickOnMod",0);
   SetEventHandler("ModMenu_IDoExit","ModMenu_IDoExit",0);
+  SetEventHandler("ievnt_command","ModMenu_ProcessCommandExecute",0);
 }
 
 // Кликнули на мод в табличке, убиваем текущий интерфейс, открываем новый с задержкой
@@ -60,11 +61,18 @@ void ModMenu_ShowModList()
 {
   string sIni = "resource\ini\interfaces\mods\mod_menu\mod_menu.ini";
   string row;
-  XI_MakeNode(sIni, "PICTURE", "PAPER", 60002);
-  XI_MakeNode(sIni, "STRINGCOLLECTION", "TITLES", 60002);
-  XI_MakeNode(sIni, "IMAGECOLLECTION", "TITLE_DIVIDER", 60002);
-  XI_MakeNode(sIni, "TABLE", "MODS_LIST", 60002);
-  XI_MakeNode(sIni, "SCROLLER", "SCROLL_MODS", 60002);
+  XI_MakeNode(sIni, "WINDOW", "MOD_WINDOW", 81);
+  XI_MakeNode(sIni, "PICTURE", "PAPER", 81);
+  XI_MakeNode(sIni, "STRINGCOLLECTION", "TITLES", 81);
+  XI_MakeNode(sIni, "IMAGECOLLECTION", "TITLE_DIVIDER", 81);
+  XI_MakeNode(sIni, "TABLE", "MODS_LIST", 81);
+  XI_MakeNode(sIni, "SCROLLER", "SCROLL_MODS", 81);
+  XI_WindowAddNode("MOD_WINDOW", "PAPER");
+  XI_WindowAddNode("MOD_WINDOW", "TITLES");
+  XI_WindowAddNode("MOD_WINDOW", "TITLE_DIVIDER");
+  XI_WindowAddNode("MOD_WINDOW", "MODS_LIST");
+  XI_WindowAddNode("MOD_WINDOW", "SCROLL_MODS");
+  XI_WindowShow("MOD_WINDOW", true);
 
   aref table;
   makearef(table, GameInterface.MODS_LIST);
@@ -143,6 +151,20 @@ void ModMenu_IDoExit()
   DelEventHandler("ModMenu_ShowModList", "ModMenu_ShowModList");
   DelEventHandler("ModMenu_IDoExit","ModMenu_IDoExit");
   DelEventHandler("OnTableClick","ModMenu_ClickOnMod");
+  DelEventHandler("ievnt_command","ModMenu_ProcessCommandExecute");
   CurrentInterface = INTERFACE_GAMEMENU;
   Event("ExitCancel");
+}
+
+void ModMenu_ProcessCommandExecute()
+{
+  string comName = GetEventData();
+  string nodName = GetEventData();
+
+  switch(nodName)
+  {
+    case "MB_EXITGAME":
+      if (comName == "click" || comName == "activate") XI_WindowShow("MOD_WINDOW", false);
+    break;
+  }
 }
