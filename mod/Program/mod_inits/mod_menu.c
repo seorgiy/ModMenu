@@ -61,19 +61,11 @@ void ModMenu_ShowModList()
 {
   string sIni = "resource\ini\interfaces\mods\mod_menu\mod_menu.ini";
   string row;
-  XI_MakeNode(sIni, "WINDOW", "MOD_WINDOW", 60002);
   XI_MakeNode(sIni, "PICTURE", "PAPER", 60002);
   XI_MakeNode(sIni, "STRINGCOLLECTION", "TITLES", 60002);
   XI_MakeNode(sIni, "IMAGECOLLECTION", "TITLE_DIVIDER", 60002);
   XI_MakeNode(sIni, "TABLE", "MODS_LIST", 60002);
   XI_MakeNode(sIni, "SCROLLER", "SCROLL_MODS", 60002);
-  XI_WindowAddNode("MOD_WINDOW", "PAPER");
-  XI_WindowAddNode("MOD_WINDOW", "TITLES");
-  XI_WindowAddNode("MOD_WINDOW", "TITLE_DIVIDER");
-  XI_WindowAddNode("MOD_WINDOW", "MODS_LIST");
-  XI_WindowAddNode("MOD_WINDOW", "SCROLL_MODS");
-  XI_WindowShow("MOD_WINDOW", true);
-  XI_WindowDisable("MOD_WINDOW", false);
 
   aref table;
   makearef(table, GameInterface.MODS_LIST);
@@ -167,8 +159,13 @@ void ModMenu_ProcessCommandExecute()
     case "MB_EXITGAME":
       if (comName == "click" || comName == "activate")
       {
-        XI_WindowShow("MOD_WINDOW", false);
-        XI_WindowDisable("MOD_WINDOW", true);
+        XI_DeleteNode("MODS_LIST");
+        XI_DeleteNode("SCROLL_MODS");
+        XI_DeleteNode("PAPER");
+        XI_DeleteNode("TITLES");
+        XI_DeleteNode("TITLE_DIVIDER");
+        XI_DeleteNode("SCROLL_MODS");
+        XI_DeleteNode("NO_MODS");
       }
     break;
   }
