@@ -12,7 +12,7 @@ Allows you to add settings for your mod to the game menu.
 
 Now you can edit these two files for your mod by adding any buttons, checkboxes and everything else that the interface of the mod can offer you. See how other game menus are made and do the same.
 
-PS To make your mod appear beautifully in the user's list, add a localization key with the name of your mod. That is, in the Resource/texts/LANGUAGE/mods/YOUR_MOD/common.ini file, add something like
+P.S. To make your mod appear beautifully in the user's list, add a localization key with the name of your mod. That is, in the Resource/texts/LANGUAGE/mods/YOUR_MOD/common.ini file, add something like
 ```
 string = daivy_cool_ships, "Daivy's Cool ships`
 ```
