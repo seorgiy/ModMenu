@@ -42,7 +42,7 @@ void Example_OptionSwitch(string option)
 {
   bool state = Example_OptionEnabled(option);
   InterfaceStates.ExampleOptions.(option) = !state;  //switch
-  Log_Info(option + ": " + InterfaceStates.ExampleOptions.(option))
+  Log_Info(option + ": " + InterfaceStates.ExampleOptions.(option));
 }
 
 bool Example_OptionEnabled(string option)
