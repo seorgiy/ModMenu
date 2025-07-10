@@ -1,5 +1,7 @@
 #include "mod_menu\menu_utils.c" // НЕ УДАЛЯТЬ. DO NOT REMOVE THAT
 
+string modPageUrl = "https://steamcommunity.com/sharedfiles/filedetails/?id=3501393265";
+
 void OnMenuOpen()
 {
   // Set title
@@ -7,7 +9,7 @@ void OnMenuOpen()
   SetFormatedText("MOD_TITLE", "EXAMPLE MENU");
 
   // Set checkboxes states
-  // Меняем состояние чекбоксов
+  // Указываем текущее состояние чекбоксов
   SendMessage(&GameInterface, "lslll", MSG_INTERFACE_MSG_TO_NODE, "EXAMPLE_CHECKBOX1", 2, 1, Example_OptionEnabled("exampleOption1"));
   SendMessage(&GameInterface, "lslll", MSG_INTERFACE_MSG_TO_NODE, "EXAMPLE_CHECKBOX2", 2, 1, Example_OptionEnabled("exampleOption2"));
 
@@ -33,6 +35,7 @@ void ProcCommand()
   switch(nodName)
   {
     Log_Info("nodName: " + nodName + " comName: " + comName);
+    case "MODPAGE_BUTTON": GameOverlayToWebPage(modPageUrl); break;
     case "EXAMPLE_CHECKBOX1": Example_OptionSwitch("exampleOption1"); break;
     case "EXAMPLE_CHECKBOX2": Example_OptionSwitch("exampleOption2"); break;
   }
